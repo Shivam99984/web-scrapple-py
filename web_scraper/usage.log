@@ -1,272 +1,115 @@
-2025-03-31 20:59:28,425 INFO: Scheduler started
-2025-03-31 20:59:28,440 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2025-03-01 15:16:35,514 INFO: Scheduler started
+2025-03-01 15:16:36,931 INFO: Scheduler started
+2025-03-01 15:16:38,208 INFO: Scheduler started
+2025-03-01 15:36:12,821 INFO: Scheduler started
+2025-03-01 15:36:12,876 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2025-03-31 20:59:28,440 INFO: [33mPress CTRL+C to quit[0m
-2025-03-31 20:59:28,440 INFO:  * Restarting with stat
-2025-03-31 20:59:29,333 INFO: Scheduler started
-2025-03-31 20:59:29,348 WARNING:  * Debugger is active!
-2025-03-31 20:59:29,353 INFO:  * Debugger PIN: 367-080-298
-2025-03-31 20:59:52,972 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:52] "GET / HTTP/1.1" 200 -
-2025-03-31 20:59:53,048 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 20:59:53,064 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:53] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 20:59:53,143 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 20:59:54,973 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:54] "GET / HTTP/1.1" 200 -
-2025-03-31 20:59:54,989 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 20:59:54,989 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:54] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 20:59:55,000 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 20:59:55,457 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:55] "GET / HTTP/1.1" 200 -
-2025-03-31 20:59:55,478 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 20:59:55,478 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:55] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 20:59:55,494 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 20:59:55,948 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:55] "GET / HTTP/1.1" 200 -
-2025-03-31 20:59:55,975 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:55] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 20:59:55,975 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 20:59:55,985 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 20:59:56,166 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:56] "GET / HTTP/1.1" 200 -
-2025-03-31 20:59:56,190 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 20:59:56,191 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:56] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 20:59:56,196 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 20:59:56,375 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:56] "GET / HTTP/1.1" 200 -
-2025-03-31 20:59:56,390 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 20:59:56,400 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:56] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 20:59:56,410 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 20:59:56,594 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:56] "GET / HTTP/1.1" 200 -
-2025-03-31 20:59:56,624 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 20:59:56,624 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:56] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 20:59:56,636 INFO: 127.0.0.1 - - [31/Mar/2025 20:59:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:00:03,951 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:03] "GET / HTTP/1.1" 200 -
-2025-03-31 21:00:03,975 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:00:03,975 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:03] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:00:03,992 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:00:06,130 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "GET / HTTP/1.1" 200 -
-2025-03-31 21:00:06,145 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:00:06,153 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:00:06,166 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:00:06,328 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "GET / HTTP/1.1" 200 -
-2025-03-31 21:00:06,355 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:00:06,356 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:00:06,366 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:00:06,517 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "GET / HTTP/1.1" 200 -
-2025-03-31 21:00:06,539 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:00:06,540 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:00:06,549 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:00:06,733 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "GET / HTTP/1.1" 200 -
-2025-03-31 21:00:06,755 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:00:06,755 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:00:06,766 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:00:28,728 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:28] "GET / HTTP/1.1" 200 -
-2025-03-31 21:00:28,751 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:00:28,751 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:28] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:00:28,761 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:00:29,341 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:29] "GET / HTTP/1.1" 200 -
-2025-03-31 21:00:29,372 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:00:29,374 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:29] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:00:29,384 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:00:29,532 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:29] "GET / HTTP/1.1" 200 -
-2025-03-31 21:00:29,567 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:00:29,567 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:29] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:00:29,579 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:00:29,794 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:29] "GET / HTTP/1.1" 200 -
-2025-03-31 21:00:29,820 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:00:29,820 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:29] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:00:29,835 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:00:29,979 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:29] "GET / HTTP/1.1" 200 -
-2025-03-31 21:00:30,001 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:00:30,001 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:30] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:00:30,015 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:00:30,217 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:30] "GET / HTTP/1.1" 200 -
-2025-03-31 21:00:30,238 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:00:30,238 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:30] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:00:30,246 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:00:30,441 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:30] "GET / HTTP/1.1" 200 -
-2025-03-31 21:00:30,468 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:00:30,468 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:30] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:00:30,479 INFO: 127.0.0.1 - - [31/Mar/2025 21:00:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:02:30,722 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:30] "GET / HTTP/1.1" 200 -
-2025-03-31 21:02:30,751 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:02:30,757 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:30] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:02:30,771 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:02:31,085 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "GET / HTTP/1.1" 200 -
-2025-03-31 21:02:31,106 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:02:31,106 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:02:31,113 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:02:31,259 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "GET / HTTP/1.1" 200 -
-2025-03-31 21:02:31,291 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:02:31,301 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:02:31,313 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:02:31,460 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "GET / HTTP/1.1" 200 -
-2025-03-31 21:02:31,482 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:02:31,482 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:02:31,495 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:02:31,640 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "GET / HTTP/1.1" 200 -
-2025-03-31 21:02:31,662 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:02:31,662 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:02:31,674 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:02:31,834 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "GET / HTTP/1.1" 200 -
-2025-03-31 21:02:31,862 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:02:31,862 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:02:31,869 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:02:32,033 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:32] "GET / HTTP/1.1" 200 -
-2025-03-31 21:02:32,060 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:02:32,060 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:32] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:02:32,072 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:02:32,216 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:32] "GET / HTTP/1.1" 200 -
-2025-03-31 21:02:32,248 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:02:32,248 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:32] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:02:32,267 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:02:32,448 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:32] "GET / HTTP/1.1" 200 -
-2025-03-31 21:02:32,471 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:02:32,471 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:32] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:02:32,482 INFO: 127.0.0.1 - - [31/Mar/2025 21:02:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:03:50,365 INFO: 127.0.0.1 - - [31/Mar/2025 21:03:50] "GET / HTTP/1.1" 200 -
-2025-03-31 21:03:50,402 INFO: 127.0.0.1 - - [31/Mar/2025 21:03:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:03:50,404 INFO: 127.0.0.1 - - [31/Mar/2025 21:03:50] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:03:50,417 INFO: 127.0.0.1 - - [31/Mar/2025 21:03:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:03:50,550 INFO: 127.0.0.1 - - [31/Mar/2025 21:03:50] "GET / HTTP/1.1" 200 -
-2025-03-31 21:03:50,568 INFO: 127.0.0.1 - - [31/Mar/2025 21:03:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:03:50,575 INFO: 127.0.0.1 - - [31/Mar/2025 21:03:50] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:03:50,586 INFO: 127.0.0.1 - - [31/Mar/2025 21:03:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:03:50,768 INFO: 127.0.0.1 - - [31/Mar/2025 21:03:50] "GET / HTTP/1.1" 200 -
-2025-03-31 21:03:50,790 INFO: 127.0.0.1 - - [31/Mar/2025 21:03:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:03:50,790 INFO: 127.0.0.1 - - [31/Mar/2025 21:03:50] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:03:50,801 INFO: 127.0.0.1 - - [31/Mar/2025 21:03:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:05:25,716 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:25] "GET / HTTP/1.1" 200 -
-2025-03-31 21:05:25,750 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:05:25,754 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:25] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:05:25,766 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:05:25,886 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:25] "GET / HTTP/1.1" 200 -
-2025-03-31 21:05:25,923 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:05:25,923 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:25] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:05:25,937 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:05:26,080 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:26] "GET / HTTP/1.1" 200 -
-2025-03-31 21:05:26,107 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:05:26,107 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:26] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:05:26,115 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:05:26,279 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:26] "GET / HTTP/1.1" 200 -
-2025-03-31 21:05:26,301 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:05:26,303 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:26] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:05:26,312 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:05:26,493 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:26] "GET / HTTP/1.1" 200 -
-2025-03-31 21:05:26,516 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:05:26,518 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:26] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
-2025-03-31 21:05:26,520 INFO: 127.0.0.1 - - [31/Mar/2025 21:05:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:09:15,933 INFO: Scheduler started
-2025-03-31 21:09:15,968 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2025-03-01 15:36:12,876 INFO: [33mPress CTRL+C to quit[0m
+2025-03-01 15:36:12,893 INFO:  * Restarting with watchdog (windowsapi)
+2025-03-01 15:36:13,865 INFO: Scheduler started
+2025-03-01 15:36:13,869 WARNING:  * Debugger is active!
+2025-03-01 15:36:13,881 INFO:  * Debugger PIN: 283-863-522
+2025-03-01 15:36:34,726 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:34] "GET / HTTP/1.1" 200 -
+2025-03-01 15:36:34,817 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:34] "GET /static/element_selector.js HTTP/1.1" 200 -
+2025-03-01 15:36:34,824 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:34] "GET /static/style.css HTTP/1.1" 200 -
+2025-03-01 15:36:34,852 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 15:36:34,906 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 15:36:47,469 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:47] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-03-01 15:36:48,765 INFO: Preview loaded for URL: https://quotes.toscrape.com/
+2025-03-01 15:36:48,770 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "GET /preview?url=https://quotes.toscrape.com/ HTTP/1.1" 200 -
+2025-03-01 15:36:48,801 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-01 15:36:48,804 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+2025-03-01 15:36:48,804 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-01 15:36:48,804 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "[33mGET /static/main.css HTTP/1.1[0m" 404 -
+2025-03-01 15:36:48,846 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 15:36:48,862 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 15:37:17,564 INFO: Scraped URL: https://quotes.toscrape.com/ with selector: li.next. Results count: 1
+2025-03-01 15:37:17,568 INFO: 127.0.0.1 - - [01/Mar/2025 15:37:17] "POST /scrape HTTP/1.1" 200 -
+2025-03-01 15:37:17,597 INFO: 127.0.0.1 - - [01/Mar/2025 15:37:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-01 15:37:17,599 INFO: 127.0.0.1 - - [01/Mar/2025 15:37:17] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-01 15:37:17,614 INFO: 127.0.0.1 - - [01/Mar/2025 15:37:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 15:37:17,629 INFO: 127.0.0.1 - - [01/Mar/2025 15:37:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 15:37:20,918 INFO: 127.0.0.1 - - [01/Mar/2025 15:37:20] "POST /export HTTP/1.1" 200 -
+2025-03-26 19:44:31,874 INFO: Scheduler started
+2025-03-26 19:44:31,913 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2025-03-31 21:09:15,968 INFO: [33mPress CTRL+C to quit[0m
-2025-03-31 21:09:15,971 INFO:  * Restarting with stat
-2025-03-31 21:09:16,869 INFO: Scheduler started
-2025-03-31 21:09:16,880 WARNING:  * Debugger is active!
-2025-03-31 21:09:16,882 INFO:  * Debugger PIN: 367-080-298
-2025-03-31 21:09:22,927 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:22] "GET / HTTP/1.1" 200 -
-2025-03-31 21:09:22,973 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:09:23,020 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:23] "GET /static/css/style.css HTTP/1.1" 200 -
-2025-03-31 21:09:23,062 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:23] "GET /static/images/computer-icon.svg HTTP/1.1" 200 -
-2025-03-31 21:09:23,062 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:23] "GET /static/images/database-icon.svg HTTP/1.1" 200 -
-2025-03-31 21:09:23,071 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:23] "GET /static/images/globe-icon.svg HTTP/1.1" 200 -
-2025-03-31 21:09:23,074 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:23] "GET /static/images/shield-icon.svg HTTP/1.1" 200 -
-2025-03-31 21:09:23,506 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:23] "GET / HTTP/1.1" 200 -
-2025-03-31 21:09:23,529 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:09:23,530 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:23] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:09:23,533 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:23] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:09:23,535 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:23] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:09:23,537 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:09:23,538 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:23] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:09:24,380 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:24] "GET / HTTP/1.1" 200 -
-2025-03-31 21:09:24,403 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:24] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:09:24,403 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:24] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:09:24,406 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:24] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:09:24,410 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:09:24,410 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:24] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:09:24,410 INFO: 127.0.0.1 - - [31/Mar/2025 21:09:24] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:10:51,764 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:51] "GET / HTTP/1.1" 200 -
-2025-03-31 21:10:51,786 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:10:51,790 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:51] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:10:51,792 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:51] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:10:51,795 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:51] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:10:51,795 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:51] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:10:51,797 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:10:52,666 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:52] "GET / HTTP/1.1" 200 -
-2025-03-31 21:10:52,717 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:10:52,719 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:52] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:10:52,721 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:52] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:10:52,725 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:10:52,727 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:52] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:10:52,727 INFO: 127.0.0.1 - - [31/Mar/2025 21:10:52] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:15:15,398 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:15] "GET / HTTP/1.1" 200 -
-2025-03-31 21:15:15,443 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:15:15,447 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:15] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:15:15,449 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:15] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:15:15,451 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:15] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:15:15,456 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:15:15,456 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:15] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:15:17,319 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "GET / HTTP/1.1" 200 -
-2025-03-31 21:15:17,342 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:15:17,345 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:15:17,347 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:15:17,348 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:15:17,350 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:15:17,352 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:15:17,779 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "GET / HTTP/1.1" 200 -
-2025-03-31 21:15:17,801 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:15:17,810 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:15:17,811 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:15:17,812 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:15:17,815 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:15:17,817 INFO: 127.0.0.1 - - [31/Mar/2025 21:15:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:16:07,302 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "GET / HTTP/1.1" 200 -
-2025-03-31 21:16:07,342 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,352 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:16:07,352 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,352 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,352 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,352 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,682 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "GET / HTTP/1.1" 200 -
-2025-03-31 21:16:07,711 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,719 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,719 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,720 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,724 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:16:07,725 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,869 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "GET / HTTP/1.1" 200 -
-2025-03-31 21:16:07,897 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,899 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,899 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,901 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:07,903 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:16:07,903 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:07] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,057 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "GET / HTTP/1.1" 200 -
-2025-03-31 21:16:08,083 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,085 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,086 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,090 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,091 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,092 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:16:08,245 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "GET / HTTP/1.1" 200 -
-2025-03-31 21:16:08,269 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,271 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,274 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,274 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,274 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,275 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:16:08,426 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "GET / HTTP/1.1" 200 -
-2025-03-31 21:16:08,451 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,452 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,454 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,455 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,457 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:16:08,457 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,609 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "GET / HTTP/1.1" 200 -
-2025-03-31 21:16:08,635 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,636 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,638 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,640 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,643 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,643 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:16:08,827 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "GET / HTTP/1.1" 200 -
-2025-03-31 21:16:08,856 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,858 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/globe-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,860 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/database-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,864 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-03-31 21:16:08,864 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/shield-icon.svg HTTP/1.1[0m" 304 -
-2025-03-31 21:16:08,865 INFO: 127.0.0.1 - - [31/Mar/2025 21:16:08] "[36mGET /static/images/computer-icon.svg HTTP/1.1[0m" 304 -
+2025-03-26 19:44:31,913 INFO: [33mPress CTRL+C to quit[0m
+2025-03-26 19:44:31,938 INFO:  * Restarting with watchdog (windowsapi)
+2025-03-26 19:44:32,866 INFO: Scheduler started
+2025-03-26 19:44:32,882 WARNING:  * Debugger is active!
+2025-03-26 19:44:32,882 INFO:  * Debugger PIN: 283-863-522
+2025-03-26 19:44:45,733 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:45] "GET / HTTP/1.1" 200 -
+2025-03-26 19:44:45,835 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:45] "GET /static/style.css HTTP/1.1" 200 -
+2025-03-26 19:44:45,835 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:45] "GET /static/element_selector.js HTTP/1.1" 200 -
+2025-03-26 19:44:45,868 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:44:45,902 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:44:49,572 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:49] "[32mGET /schedule HTTP/1.1[0m" 302 -
+2025-03-26 19:44:49,582 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:49] "GET /login HTTP/1.1" 200 -
+2025-03-26 19:44:49,611 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-26 19:44:49,616 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:49] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-26 19:44:49,630 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:44:49,644 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:44:53,441 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:53] "GET /register HTTP/1.1" 200 -
+2025-03-26 19:44:53,462 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-26 19:44:53,469 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:53] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-26 19:44:53,482 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:44:53,496 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:41,530 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:41] "GET /logs HTTP/1.1" 200 -
+2025-03-26 19:45:41,598 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:41,625 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:47,541 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:50,836 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:50] "GET / HTTP/1.1" 200 -
+2025-03-26 19:45:50,879 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-26 19:45:50,883 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:50] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-26 19:45:50,900 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:50,915 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:52,092 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:52] "[32mGET /schedule HTTP/1.1[0m" 302 -
+2025-03-26 19:45:52,098 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:52] "GET /login HTTP/1.1" 200 -
+2025-03-26 19:45:52,222 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-26 19:45:52,223 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:52] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-26 19:45:52,237 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:52,250 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:54,572 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:54] "GET /logs HTTP/1.1" 200 -
+2025-03-26 19:45:54,602 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:54,619 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 21:21:40,189 INFO: Scheduler started
+2025-03-31 21:21:40,206 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-31 21:21:40,206 INFO: [33mPress CTRL+C to quit[0m
+2025-03-31 21:21:40,207 INFO:  * Restarting with stat
+2025-03-31 21:21:41,159 INFO: Scheduler started
+2025-03-31 21:21:41,170 WARNING:  * Debugger is active!
+2025-03-31 21:21:41,174 INFO:  * Debugger PIN: 367-080-298
+2025-03-31 21:21:46,053 INFO: 127.0.0.1 - - [31/Mar/2025 21:21:46] "GET / HTTP/1.1" 200 -
+2025-03-31 21:21:46,136 INFO: 127.0.0.1 - - [31/Mar/2025 21:21:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-31 21:21:46,136 INFO: 127.0.0.1 - - [31/Mar/2025 21:21:46] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-31 21:21:46,163 INFO: 127.0.0.1 - - [31/Mar/2025 21:21:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 21:21:47,994 INFO: 127.0.0.1 - - [31/Mar/2025 21:21:47] "[32mGET /schedule HTTP/1.1[0m" 302 -
+2025-03-31 21:21:47,999 INFO: 127.0.0.1 - - [31/Mar/2025 21:21:47] "GET /login HTTP/1.1" 200 -
+2025-03-31 21:21:48,022 INFO: 127.0.0.1 - - [31/Mar/2025 21:21:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-31 21:21:48,022 INFO: 127.0.0.1 - - [31/Mar/2025 21:21:48] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-31 21:21:48,046 INFO: 127.0.0.1 - - [31/Mar/2025 21:21:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 21:21:54,014 INFO: 127.0.0.1 - - [31/Mar/2025 21:21:54] "GET /register HTTP/1.1" 200 -
+2025-03-31 21:21:54,044 INFO: 127.0.0.1 - - [31/Mar/2025 21:21:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-31 21:21:54,045 INFO: 127.0.0.1 - - [31/Mar/2025 21:21:54] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-31 21:21:54,057 INFO: 127.0.0.1 - - [31/Mar/2025 21:21:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 21:22:08,010 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:08] "[32mPOST /register HTTP/1.1[0m" 302 -
+2025-03-31 21:22:08,014 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:08] "GET /login HTTP/1.1" 200 -
+2025-03-31 21:22:08,040 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-31 21:22:08,042 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:08] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-31 21:22:08,059 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 21:22:18,598 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:18] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-03-31 21:22:18,608 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:18] "GET / HTTP/1.1" 200 -
+2025-03-31 21:22:18,635 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-31 21:22:18,642 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:18] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-31 21:22:18,683 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 21:22:22,527 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:22] "GET /schedule HTTP/1.1" 200 -
+2025-03-31 21:22:22,555 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-31 21:22:22,557 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:22] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-31 21:22:22,577 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 21:22:26,759 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:26] "GET /logs HTTP/1.1" 200 -
+2025-03-31 21:22:26,803 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 21:22:42,010 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:42] "GET / HTTP/1.1" 200 -
+2025-03-31 21:22:42,036 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-31 21:22:42,043 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:42] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-31 21:22:42,059 INFO: 127.0.0.1 - - [31/Mar/2025 21:22:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
