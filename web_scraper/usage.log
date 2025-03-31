@@ -314,3 +314,19 @@
 2025-03-31 19:49:58,226 INFO: 127.0.0.1 - - [31/Mar/2025 19:49:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-03-31 19:49:58,226 INFO: 127.0.0.1 - - [31/Mar/2025 19:49:58] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
 2025-03-31 19:49:58,239 INFO: 127.0.0.1 - - [31/Mar/2025 19:49:58] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 19:51:26,475 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:26] "GET / HTTP/1.1" 200 -
+2025-03-31 19:51:26,508 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-31 19:51:26,519 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:26] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-31 19:51:26,536 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 19:51:27,183 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:27] "GET / HTTP/1.1" 200 -
+2025-03-31 19:51:27,208 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-31 19:51:27,208 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:27] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-31 19:51:27,226 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 19:51:30,589 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:30] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-03-31 19:51:32,057 INFO: Preview loaded for URL: https://quotes.toscrape.com/
+2025-03-31 19:51:32,057 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:32] "GET /preview?url=https://quotes.toscrape.com/ HTTP/1.1" 200 -
+2025-03-31 19:51:32,099 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-31 19:51:32,100 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:32] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-31 19:51:32,101 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:32] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+2025-03-31 19:51:32,112 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:32] "[33mGET /static/main.css HTTP/1.1[0m" 404 -
+2025-03-31 19:51:32,130 INFO: 127.0.0.1 - - [31/Mar/2025 19:51:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
