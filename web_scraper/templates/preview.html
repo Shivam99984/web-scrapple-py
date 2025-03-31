@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Preview for URL: {{ url }}</h2>
+  <p>Click on an element in the preview below to select it for scraping.</p>
+  <div id="preview-container" style="border: 1px solid #ccc; padding: 10px;">
+    {{ html_content|safe }}
+  </div>
+  <form method="post" action="{{ url_for('scrape') }}">
+    <input type="hidden" name="url" value="{{ url }}">
+    <label for="selector">Selected CSS Selector:</label>
+    <input type="text" id="selector" name="selector" placeholder="Element selector will appear here" required>
+    <button type="submit">Scrape Selected Element</button>
+  </form>
+{% endblock %}

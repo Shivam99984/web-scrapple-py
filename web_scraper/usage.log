@@ -1,0 +1,101 @@
+2025-03-01 15:16:35,514 INFO: Scheduler started
+2025-03-01 15:16:36,931 INFO: Scheduler started
+2025-03-01 15:16:38,208 INFO: Scheduler started
+2025-03-01 15:36:12,821 INFO: Scheduler started
+2025-03-01 15:36:12,876 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-01 15:36:12,876 INFO: [33mPress CTRL+C to quit[0m
+2025-03-01 15:36:12,893 INFO:  * Restarting with watchdog (windowsapi)
+2025-03-01 15:36:13,865 INFO: Scheduler started
+2025-03-01 15:36:13,869 WARNING:  * Debugger is active!
+2025-03-01 15:36:13,881 INFO:  * Debugger PIN: 283-863-522
+2025-03-01 15:36:34,726 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:34] "GET / HTTP/1.1" 200 -
+2025-03-01 15:36:34,817 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:34] "GET /static/element_selector.js HTTP/1.1" 200 -
+2025-03-01 15:36:34,824 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:34] "GET /static/style.css HTTP/1.1" 200 -
+2025-03-01 15:36:34,852 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 15:36:34,906 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 15:36:47,469 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:47] "[32mPOST / HTTP/1.1[0m" 302 -
+2025-03-01 15:36:48,765 INFO: Preview loaded for URL: https://quotes.toscrape.com/
+2025-03-01 15:36:48,770 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "GET /preview?url=https://quotes.toscrape.com/ HTTP/1.1" 200 -
+2025-03-01 15:36:48,801 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-01 15:36:48,804 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "[33mGET /static/bootstrap.min.css HTTP/1.1[0m" 404 -
+2025-03-01 15:36:48,804 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-01 15:36:48,804 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "[33mGET /static/main.css HTTP/1.1[0m" 404 -
+2025-03-01 15:36:48,846 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 15:36:48,862 INFO: 127.0.0.1 - - [01/Mar/2025 15:36:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 15:37:17,564 INFO: Scraped URL: https://quotes.toscrape.com/ with selector: li.next. Results count: 1
+2025-03-01 15:37:17,568 INFO: 127.0.0.1 - - [01/Mar/2025 15:37:17] "POST /scrape HTTP/1.1" 200 -
+2025-03-01 15:37:17,597 INFO: 127.0.0.1 - - [01/Mar/2025 15:37:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-01 15:37:17,599 INFO: 127.0.0.1 - - [01/Mar/2025 15:37:17] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-01 15:37:17,614 INFO: 127.0.0.1 - - [01/Mar/2025 15:37:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 15:37:17,629 INFO: 127.0.0.1 - - [01/Mar/2025 15:37:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 15:37:20,918 INFO: 127.0.0.1 - - [01/Mar/2025 15:37:20] "POST /export HTTP/1.1" 200 -
+2025-03-26 19:44:31,874 INFO: Scheduler started
+2025-03-26 19:44:31,913 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-26 19:44:31,913 INFO: [33mPress CTRL+C to quit[0m
+2025-03-26 19:44:31,938 INFO:  * Restarting with watchdog (windowsapi)
+2025-03-26 19:44:32,866 INFO: Scheduler started
+2025-03-26 19:44:32,882 WARNING:  * Debugger is active!
+2025-03-26 19:44:32,882 INFO:  * Debugger PIN: 283-863-522
+2025-03-26 19:44:45,733 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:45] "GET / HTTP/1.1" 200 -
+2025-03-26 19:44:45,835 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:45] "GET /static/style.css HTTP/1.1" 200 -
+2025-03-26 19:44:45,835 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:45] "GET /static/element_selector.js HTTP/1.1" 200 -
+2025-03-26 19:44:45,868 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:44:45,902 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:44:49,572 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:49] "[32mGET /schedule HTTP/1.1[0m" 302 -
+2025-03-26 19:44:49,582 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:49] "GET /login HTTP/1.1" 200 -
+2025-03-26 19:44:49,611 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-26 19:44:49,616 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:49] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-26 19:44:49,630 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:44:49,644 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:44:53,441 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:53] "GET /register HTTP/1.1" 200 -
+2025-03-26 19:44:53,462 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-26 19:44:53,469 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:53] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-26 19:44:53,482 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:44:53,496 INFO: 127.0.0.1 - - [26/Mar/2025 19:44:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:41,530 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:41] "GET /logs HTTP/1.1" 200 -
+2025-03-26 19:45:41,598 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:41,625 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:47,541 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:50,836 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:50] "GET / HTTP/1.1" 200 -
+2025-03-26 19:45:50,879 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-26 19:45:50,883 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:50] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-26 19:45:50,900 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:50,915 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:52,092 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:52] "[32mGET /schedule HTTP/1.1[0m" 302 -
+2025-03-26 19:45:52,098 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:52] "GET /login HTTP/1.1" 200 -
+2025-03-26 19:45:52,222 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-26 19:45:52,223 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:52] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-26 19:45:52,237 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:52,250 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:54,572 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:54] "GET /logs HTTP/1.1" 200 -
+2025-03-26 19:45:54,602 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-26 19:45:54,619 INFO: 127.0.0.1 - - [26/Mar/2025 19:45:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 18:45:04,520 INFO: Scheduler started
+2025-03-31 18:45:04,560 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-31 18:45:04,560 INFO: [33mPress CTRL+C to quit[0m
+2025-03-31 18:45:04,577 INFO:  * Restarting with watchdog (windowsapi)
+2025-03-31 18:45:05,669 INFO: Scheduler started
+2025-03-31 18:45:05,683 WARNING:  * Debugger is active!
+2025-03-31 18:45:05,687 INFO:  * Debugger PIN: 283-863-522
+2025-03-31 18:45:10,649 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:10] "GET / HTTP/1.1" 200 -
+2025-03-31 18:45:10,752 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:10] "GET /static/element_selector.js HTTP/1.1" 200 -
+2025-03-31 18:45:10,767 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:10] "GET /static/style.css HTTP/1.1" 200 -
+2025-03-31 18:45:10,787 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 18:45:10,828 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 18:45:13,562 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:13] "[32mGET /schedule HTTP/1.1[0m" 302 -
+2025-03-31 18:45:13,562 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:13] "GET /login HTTP/1.1" 200 -
+2025-03-31 18:45:13,595 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-31 18:45:13,595 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:13] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-31 18:45:13,610 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 18:45:13,646 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 18:45:15,642 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:15] "GET /logs HTTP/1.1" 200 -
+2025-03-31 18:45:15,687 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 18:45:15,701 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 18:45:19,960 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:19] "GET / HTTP/1.1" 200 -
+2025-03-31 18:45:19,987 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-31 18:45:19,994 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:19] "[36mGET /static/element_selector.js HTTP/1.1[0m" 304 -
+2025-03-31 18:45:20,008 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-31 18:45:20,019 INFO: 127.0.0.1 - - [31/Mar/2025 18:45:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

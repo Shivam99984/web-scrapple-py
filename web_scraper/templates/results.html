@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Results for URL: {{ url }}</h2>
+  <p>Using selector: <strong>{{ selector }}</strong></p>
+  {% if results %}
+    <form method="post" action="{{ url_for('export') }}">
+      <ul>
+        {% for item in results %}
+          <li>{{ item }}</li>
+          <!-- Hidden input to send data for export -->
+          <input type="hidden" name="data" value="{{ item }}">
+        {% endfor %}
+      </ul>
+      <label for="export_format">Export Format:</label>
+      <select name="export_format" id="export_format">
+        <option value="csv">CSV</option>
+        <option value="json">JSON</option>
+        <option value="xlsx">Excel (XLSX)</option>
+      </select>
+      <button type="submit">Export Data</button>
+    </form>
+  {% else %}
+    <p>No results found using the selector provided.</p>
+  {% endif %}
+  <br>
+  <a href="{{ url_for('index') }}">Back to Home</a>
+{% endblock %}
