@@ -9,13 +9,15 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">
+        <div class="header-content">
+            <div class="logo-container">
                 <img src="{{ url_for('static', filename='images/globe-icon.svg') }}" alt="Globe icon">
-                <a href="{{ url_for('index') }}">Web Scrapple</a>
+                <a href="{{ url_for('index') }}" class="logo-text">Web Scrapple</a>
             </div>
-            <div class="tagline">Extract data from any website</div>
-        </nav>
+            <div class="header-right">
+                <span class="extract-text">Extract data from any website</span>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -23,8 +25,10 @@
     </main>
 
     <footer>
-        <p>© 2025 Web Scrapple. All rights reserved.</p>
-        <p>Made with ❤️ for web scraping enthusiasts</p>
+        <div class="footer-content">
+            <span>© 2025 Web Scrapple. All rights reserved.</span>
+            <span>Made with ❤️ for web scraping enthusiasts</span>
+        </div>
     </footer>
 
     {% block scripts %}{% endblock %}

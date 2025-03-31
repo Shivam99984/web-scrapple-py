@@ -1,54 +1,73 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Extract Web Data with Ease</h1>
-<p class="subtitle">Enter any URL and extract structured data from web pages in seconds.</p>
+<div class="container">
+    <h1>Extract Web Data with Ease</h1>
+    <p class="subtitle">Enter any URL and extract structured data from web pages in seconds.</p>
 
-<div class="warning-box">
-    <span class="warning-icon">⚠</span>
-    <div>
-        <strong>Friendly reminder</strong>
-        <p>This is a client-side web scraper. Some websites may block scraping attempts, and not all content may be accessible. Always respect robots.txt rules and terms of service.</p>
+    <div class="warning-container">
+        <div class="warning-box">
+            <span class="warning-icon">⚠</span>
+            <div class="warning-content">
+                <strong>Friendly reminder</strong>
+                <p>This is a client-side web scraper. Some websites may block scraping attempts, and not all content may be accessible. Always respect robots.txt rules and terms of service.</p>
+            </div>
+        </div>
     </div>
-</div>
 
-<div class="scraper-form">
-    <form action="{{ url_for('scrape') }}" method="POST">
-        <div class="url-input-group">
+    <div class="main-card">
+        <div class="url-section">
             <label for="website-url">Website URL</label>
-            <div class="input-wrapper">
-                <span class="globe-icon">🌐</span>
-                <input type="url" id="website-url" name="url" placeholder="https://example.com" required>
-                <button type="submit" class="scrape-button">Scrape Data</button>
+            <div class="url-input-container">
+                <span class="url-icon">🌐</span>
+                <input type="url" id="website-url" placeholder="https://example.com">
+                <button class="scrape-button">Scrape Data</button>
             </div>
         </div>
 
-        <div class="options-group">
+        <div class="options-section">
             <h3>Scraping Options</h3>
-            <div class="checkbox-group">
-                <label><input type="checkbox" name="text_content" checked> Text Content</label>
-                <label><input type="checkbox" name="links" checked> Links</label>
-                <label><input type="checkbox" name="images"> Images</label>
+            <div class="options-grid">
+                <label class="checkbox-label">
+                    <input type="checkbox" checked>
+                    <span>Text Content</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" checked>
+                    <span>Links</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox">
+                    <span>Images</span>
+                </label>
             </div>
         </div>
-    </form>
-</div>
+    </div>
 
-<div class="features">
-    <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <h3>Extract Structured Data</h3>
-        <p>Extract text, links, images, metadata and more from any website with just a URL.</p>
-    </div>
-    <div class="feature-card">
-        <div class="feature-icon">🛡️</div>
-        <h3>Ethical Scraping</h3>
-        <p>Our tool respects robots.txt and website rate limits to ensure ethical web scraping practices.</p>
-    </div>
-    <div class="feature-card">
-        <div class="feature-icon">💻</div>
-        <h3>Client-Side Processing</h3>
-        <p>All processing happens in your browser, meaning your data never leaves your computer.</p>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <img src="{{ url_for('static', filename='images/database-icon.svg') }}" alt="Database icon">
+            </div>
+            <h3>Extract Structured Data</h3>
+            <p>Extract text, links, images, metadata and more from any website with just a URL.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <img src="{{ url_for('static', filename='images/shield-icon.svg') }}" alt="Shield icon">
+            </div>
+            <h3>Ethical Scraping</h3>
+            <p>Our tool respects robots.txt and website rate limits to ensure ethical web scraping practices.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <img src="{{ url_for('static', filename='images/computer-icon.svg') }}" alt="Computer icon">
+            </div>
+            <h3>Client-Side Processing</h3>
+            <p>All processing happens in your browser, meaning your data never leaves your computer.</p>
+        </div>
     </div>
 </div>
 {% endblock %} 
