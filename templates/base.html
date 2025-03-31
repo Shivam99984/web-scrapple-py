@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Web Scrapple - Extract data from any website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/globe-icon.svg') }}" alt="Globe icon">
+                <a href="{{ url_for('index') }}">Web Scrapple</a>
+            </div>
+            <div class="tagline">Extract data from any website</div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2025 Web Scrapple. All rights reserved.</p>
+        <p>Made with ❤️ for web scraping enthusiasts</p>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html> 

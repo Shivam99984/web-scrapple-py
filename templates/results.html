@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}Scraping Results - Web Scrapple{% endblock %}
+
+{% block content %}
+<div class="results-container">
+    <h2>Scraping Results</h2>
+    <div class="url-info">
+        <p>Source: <a href="{{ url }}" target="_blank">{{ url }}</a></p>
+        <p>Scraped at: {{ timestamp }}</p>
+    </div>
+
+    {% if error %}
+    <div class="error-message">
+        <span class="error-icon">❌</span>
+        <p>{{ error }}</p>
+    </div>
+    {% else %}
+    <div class="results-tabs">
+        {% if text_content %}
+        <div class="tab-section">
+            <h3>Text Content</h3>
+            <div class="content-box">
+                {% for text in text_content %}
+                <p>{{ text }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if links %}
+        <div class="tab-section">
+            <h3>Links</h3>
+            <div class="content-box">
+                <ul class="links-list">
+                    {% for link in links %}
+                    <li><a href="{{ link.url }}" target="_blank">{{ link.text }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if images %}
+        <div class="tab-section">
+            <h3>Images</h3>
+            <div class="content-box images-grid">
+                {% for image in images %}
+                <div class="image-item">
+                    <img src="{{ image.src }}" alt="{{ image.alt }}">
+                    <p class="image-caption">{{ image.alt }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="action-buttons">
+        <a href="{{ url_for('index') }}" class="button secondary">New Scrape</a>
+        <button class="button primary" onclick="downloadResults()">Download Results</button>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .results-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .url-info {
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background: var(--light-gray);
+        border-radius: 8px;
+    }
+
+    .error-message {
+        background: #ffe6e6;
+        border: 1px solid #ffcccc;
+        padding: 1rem;
+        border-radius: 8px;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .tab-section {
+        margin-bottom: 2rem;
+    }
+
+    .content-box {
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+
+    .links-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .links-list li {
+        margin-bottom: 0.5rem;
+    }
+
+    .images-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .image-item img {
+        max-width: 100%;
+        border-radius: 4px;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .button.primary {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+    }
+
+    .button.secondary {
+        background: white;
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function downloadResults() {
+    const data = {
+        url: "{{ url }}",
+        timestamp: "{{ timestamp }}",
+        text_content: {{ text_content|tojson }},
+        links: {{ links|tojson }},
+        images: {{ images|tojson }}
+    };
+    
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'scraping-results.json';
+    a.click();
+    window.URL.revokeObjectURL(url);
+}
+</script>
+{% endblock %} 
