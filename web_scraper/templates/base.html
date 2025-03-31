@@ -1,36 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Web Scrapple - Extract data from any website{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    {% block extra_css %}{% endblock %}
+  <meta charset="utf-8">
+  <title>Web Scraper</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='element_selector.js') }}"></script>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo-container">
-                <img src="{{ url_for('static', filename='images/globe-icon.svg') }}" alt="Globe icon">
-                <a href="{{ url_for('index') }}" class="logo-text">Web Scrapple</a>
-            </div>
-            <div class="header-right">
-                <span class="extract-text">Extract data from any website</span>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <span>© 2025 Web Scrapple. All rights reserved.</span>
-            <span>Made with ❤️ for web scraping enthusiasts</span>
-        </div>
-    </footer>
-
-    {% block scripts %}{% endblock %}
+  <div class="container">
+    <h1>Web Scraper</h1>
+    <nav>
+      <a href="{{ url_for('index') }}">Home</a> |
+      <a href="{{ url_for('schedule') }}">Schedule</a> |
+      <a href="{{ url_for('logs') }}">Logs</a>
+    </nav>
+    {% block content %}{% endblock %}
+  </div>
 </body>
-</html> 
+</html>

@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+form {
+    margin: 20px auto;
+    width: 80%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+button:hover {
+    background: #555;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    background: #e4e4e4;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 3px;
+}
+.error {
+    color: red;
+    text-align: center;
+}
+.message {
+    color: green;
+    text-align: center;
+}
