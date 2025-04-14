@@ -1,27 +1,133 @@
 {% extends "base.html" %}
+
 {% block content %}
-  <h2>Results for URL: {{ url }}</h2>
-  <p>Using selector: <strong>{{ selector }}</strong></p>
-  {% if results %}
-    <form method="post" action="{{ url_for('export') }}">
-      <ul>
-        {% for item in results %}
-          <li>{{ item }}</li>
-          <!-- Hidden input to send data for export -->
-          <input type="hidden" name="data" value="{{ item }}">
-        {% endfor %}
-      </ul>
-      <label for="export_format">Export Format:</label>
-      <select name="export_format" id="export_format">
-        <option value="csv">CSV</option>
-        <option value="json">JSON</option>
-        <option value="xlsx">Excel (XLSX)</option>
-      </select>
-      <button type="submit">Export Data</button>
-    </form>
-  {% else %}
-    <p>No results found using the selector provided.</p>
-  {% endif %}
-  <br>
-  <a href="{{ url_for('index') }}">Back to Home</a>
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+
+      <h2 class="mb-3 text-center">Results for URL</h2>
+      <p class="text-muted text-center">Using selector: <strong>{{ selector }}</strong></p>
+
+      {% if results %}
+        <form method="post" action="{{ url_for('export') }}" class="border p-4 rounded shadow-sm bg-light">
+
+          <ul class="list-group mb-4">
+            {% for item in results %}
+              <li class="list-group-item">{{ item }}</li>
+              <!-- Hidden input to send data for export -->
+              <input type="hidden" name="data" value="{{ item }}">
+            {% endfor %}
+          </ul>
+
+          <div class="mb-3">
+            <label for="export_format" class="form-label">Export Format:</label>
+            <select name="export_format" id="export_format" class="form-select" required>
+              <option value="csv">CSV</option>
+              <option value="json">JSON</option>
+              <option value="xlsx">Excel (XLSX)</option>
+            </select>
+          </div>
+
+          <div class="d-grid">
+            <button type="submit" class="btn btn-success">Export Data</button>
+          </div>
+        </form>
+      {% else %}
+        <div class="alert alert-warning text-center">No results found using the selector provided.</div>
+      {% endif %}
+
+      <div class="mt-4 text-center">
+        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">Back to Home</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Track touch points for two-finger swipe
+      let touchPoints = [];
+      let isTwoFingerSwipe = false;
+
+      // Handle touch start
+      document.addEventListener('touchstart', function(e) {
+        if (e.touches.length === 2) {
+          isTwoFingerSwipe = true;
+          touchPoints = Array.from(e.touches).map(touch => ({
+            x: touch.clientX,
+            y: touch.clientY
+          }));
+        }
+      });
+
+      // Handle touch move
+      document.addEventListener('touchmove', function(e) {
+        if (!isTwoFingerSwipe || e.touches.length !== 2) return;
+
+        // Calculate average movement of both fingers
+        const currentPoints = Array.from(e.touches).map(touch => ({
+          x: touch.clientX,
+          y: touch.clientY
+        }));
+
+        const deltaX = (currentPoints[0].x + currentPoints[1].x) / 2 - 
+                      (touchPoints[0].x + touchPoints[1].x) / 2;
+        const deltaY = (currentPoints[0].y + currentPoints[1].y) / 2 - 
+                      (touchPoints[0].y + touchPoints[1].y) / 2;
+
+        // If horizontal movement is greater than vertical
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+          e.preventDefault();
+        }
+      });
+
+      // Handle touch end
+      document.addEventListener('touchend', function(e) {
+        if (!isTwoFingerSwipe) return;
+
+        const currentPoints = Array.from(e.changedTouches).map(touch => ({
+          x: touch.clientX,
+          y: touch.clientY
+        }));
+
+        const deltaX = (currentPoints[0].x + currentPoints[1].x) / 2 - 
+                      (touchPoints[0].x + touchPoints[1].x) / 2;
+        const deltaY = (currentPoints[0].y + currentPoints[1].y) / 2 - 
+                      (touchPoints[0].y + touchPoints[1].y) / 2;
+
+        // Check if it's a right swipe and horizontal movement is dominant
+        if (deltaX > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+          window.location.href = "{{ url_for('index') }}";
+        }
+
+        isTwoFingerSwipe = false;
+        touchPoints = [];
+      });
+
+      // Handle touchpad two-finger swipe
+      let isTouchpadSwipe = false;
+      let startX = 0;
+
+      document.addEventListener('wheel', function(e) {
+        // Check if it's a horizontal scroll (two-finger swipe on touchpad)
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+          if (!isTouchpadSwipe) {
+            isTouchpadSwipe = true;
+            startX = e.clientX;
+          }
+
+          // If the horizontal scroll is significant
+          if (Math.abs(e.deltaX) > 50) {
+            window.location.href = "{{ url_for('index') }}";
+          }
+        }
+      });
+
+      // Reset touchpad swipe state when wheel event ends
+      document.addEventListener('wheel', function(e) {
+        setTimeout(() => {
+          isTouchpadSwipe = false;
+        }, 100);
+      }, { passive: true });
+    });
+  </script>
 {% endblock %}

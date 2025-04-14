@@ -1,20 +1,351 @@
+<!-- templates/base.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Web Scraper</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>{% block title %}Web Scraper{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Custom Styles -->
+  <style>
+    body { padding-top: 70px; }
+    .navbar-brand img { height: 40px; margin-right: 10px; }
+    .navbar a.nav-link.active { font-weight: bold; }
+    .flash-messages {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      z-index: 1050;
+      max-width: 400px;
+    }
+    .flash-message {
+      margin-bottom: 10px;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      animation: slideIn 0.5s ease-out;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .flash-success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .flash-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    .flash-warning {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+    }
+    .flash-info {
+      background-color: #d1ecf1;
+      color: #0c5460;
+      border: 1px solid #bee5eb;
+    }
+    .loading-preview {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1060;
+      backdrop-filter: blur(5px);
+    }
+    .loading-content {
+      text-align: center;
+      color: white;
+    }
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+    .loading-spinner::before,
+    .loading-spinner::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #3498db;
+      animation: spin 1s linear infinite;
+    }
+    .loading-spinner::after {
+      border-top-color: #e74c3c;
+      animation: spin 1.5s linear infinite reverse;
+    }
+    .loading-spinner::before {
+      border-top-color: #2ecc71;
+      animation: spin 2s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .loading-text {
+      font-size: 18px;
+      margin-top: 20px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+    .error-message {
+      background-color: rgba(231, 76, 60, 0.9);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 20px auto;
+      text-align: center;
+      animation: fadeIn 0.5s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .error-details {
+      margin-top: 10px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
+
+  <!-- Optional JS for element selection -->
   <script src="{{ url_for('static', filename='element_selector.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+
+
 </head>
+
 <body>
-  <div class="container">
-    <h1>Web Scraper</h1>
-    <nav>
-      <a href="{{ url_for('index') }}">Home</a> |
-      <a href="{{ url_for('schedule') }}">Schedule</a> |
-      <a href="{{ url_for('logs') }}">Logs</a>
-    </nav>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand d-flex align-items-center" href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+        <span>Web Scraper</span>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('schedule') }}">Schedule</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('view_logs') }}">Logs</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          {% if current_user() %}
+            <li class="nav-item">
+              <a class="nav-link" href="#">{{ current_user().username }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="flash-messages">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash-message flash-{{ category }}">
+            {{ message }}
+            <button type="button" class="btn-close float-end" onclick="this.parentElement.remove()"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <div class="container mt-4">
     {% block content %}{% endblock %}
   </div>
+  {% include "footer.html" %}
+
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Make loading functions globally available
+    window.showLoadingPreview = function(message) {
+      const loadingDiv = document.createElement('div');
+      loadingDiv.className = 'loading-preview';
+      loadingDiv.innerHTML = `
+        <div class="loading-content">
+          <div class="loading-spinner"></div>
+          <div class="loading-text">${message}</div>
+        </div>
+      `;
+      document.body.appendChild(loadingDiv);
+      return loadingDiv;
+    };
+
+    window.hideLoadingPreview = function(loadingDiv) {
+      if (loadingDiv) {
+        loadingDiv.style.opacity = '0';
+        setTimeout(() => loadingDiv.remove(), 500);
+      }
+    };
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Auto-remove flash messages
+      const flashMessages = document.querySelectorAll('.flash-message');
+      flashMessages.forEach(message => {
+        setTimeout(() => {
+          message.style.opacity = '0';
+          setTimeout(() => message.remove(), 500);
+        }, 5000);
+      });
+
+      // Handle Load Preview form
+      const previewForm = document.getElementById('previewForm');
+      const urlInput = document.getElementById('url');
+      
+      if (previewForm) {
+        previewForm.addEventListener('submit', function(e) {
+          e.preventDefault(); // Prevent default form submission
+          
+          // Check if URL is empty
+          if (!urlInput.value.trim()) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'alert alert-danger alert-dismissible fade show';
+            errorDiv.innerHTML = `
+              Please enter a website URL
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            `;
+            previewForm.insertBefore(errorDiv, previewForm.firstChild);
+            return;
+          }
+
+          // Show loading spinner
+          const loadingDiv = showLoadingPreview('Loading Preview...');
+
+          // Submit form
+          fetch('/preview?' + new URLSearchParams({url: urlInput.value}), {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/json'
+            }
+          })
+          .then(response => {
+            if (!response.ok) {
+              return response.json().then(data => {
+                throw new Error(data.error);
+              });
+            }
+            return response.text();
+          })
+          .then(data => {
+            // Hide loading spinner
+            hideLoadingPreview(loadingDiv);
+            
+            // Check if the response is JSON (error) or HTML (success)
+            try {
+              const jsonData = JSON.parse(data);
+              if (jsonData.error) {
+                throw new Error(jsonData.error);
+              }
+            } catch (e) {
+              // If it's not JSON, it's the HTML content
+              document.open();
+              document.write(data);
+              document.close();
+            }
+          })
+          .catch(error => {
+            // Hide loading spinner
+            hideLoadingPreview(loadingDiv);
+            
+            // Show error message in a popup
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'flash-message flash-error';
+            errorDiv.innerHTML = `
+              ${error.message}
+              <button type="button" class="btn-close" onclick="this.parentElement.remove()"></button>
+            `;
+            
+            // Add to flash messages container
+            const flashContainer = document.querySelector('.flash-messages');
+            flashContainer.appendChild(errorDiv);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+              errorDiv.style.opacity = '0';
+              setTimeout(() => errorDiv.remove(), 500);
+            }, 5000);
+          });
+        });
+      }
+
+      // Handle navigation links
+      document.querySelectorAll('a.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (this.getAttribute('href') !== '#') {
+            const loadingDiv = showLoadingPreview('Loading page...');
+            window.addEventListener('beforeunload', () => hideLoadingPreview(loadingDiv));
+          }
+        });
+      });
+    });
+
+    // Handle page transitions
+    window.addEventListener('beforeunload', function() {
+      const loadingDiv = document.querySelector('.loading-preview');
+      if (loadingDiv) {
+        hideLoadingPreview(loadingDiv);
+      }
+    });
+  </script>
 </body>
 </html>

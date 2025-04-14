@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Error - Web Scrapple{% endblock %}
+
+{% block content %}
+<div class="error-container">
+    <div class="error-content">
+        <h2>{{ error_title|default('Oops! Something went wrong') }}</h2>
+        <p class="error-message">{{ error_message }}</p>
+        <div class="error-actions">
+            <a href="{{ url_for('index') }}" class="button primary">Return Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .error-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 60vh;
+        text-align: center;
+    }
+
+    .error-content {
+        max-width: 600px;
+        padding: 2rem;
+    }
+
+    .error-message {
+        margin: 1.5rem 0;
+        color: #666;
+    }
+
+    .error-actions {
+        margin-top: 2rem;
+    }
+</style>
+{% endblock %} 

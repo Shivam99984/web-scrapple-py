@@ -1,14 +1,1163 @@
 {% extends "base.html" %}
+
 {% block content %}
-  <h2>Preview for URL: {{ url }}</h2>
-  <p>Click on an element in the preview below to select it for scraping.</p>
-  <div id="preview-container" style="border: 1px solid #ccc; padding: 10px;">
-    {{ html_content|safe }}
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <h2 class="mb-3 text-center">Preview for URL</h2>
+      <p class="text-muted text-center">Click on an element in the preview below to select it for scraping.</p>
+
+      <!-- Improved preview container -->
+      <div class="preview-wrapper mb-4">
+        <div id="preview-container" class="border rounded bg-white shadow">
+          <div class="preview-header p-2 bg-light border-bottom">
+            <div class="d-flex align-items-center">
+              <div class="browser-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <input type="text" class="form-control form-control-sm ms-2" value="{{ url }}" readonly>
+            </div>
+          </div>
+          <div class="preview-content">
+            <div id="preview-wrapper">
+              {{ html_content|safe }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form method="post" action="{{ url_for('scrape') }}" class="border p-4 rounded shadow-sm bg-light" id="scrapeForm">
+        <input type="hidden" name="url" value="{{ url }}">
+        <div class="mb-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <label for="selector" class="form-label">Selected CSS Selector</label>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="multiSelectMode">
+              <label class="form-check-label" for="multiSelectMode">Multi-select mode</label>
+            </div>
+          </div>
+          <div class="selector-input-group">
+            <input type="text" id="selector" name="selector" class="form-control" placeholder="Element selector will appear here">
+            <button type="button" class="btn btn-outline-secondary btn-sm" id="validateSelector">
+              Validate & Test
+            </button>
+          </div>
+          <div id="selectedPreview" class="mt-2 p-2 border rounded d-none">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <div class="d-flex align-items-center">
+                <small class="text-muted me-2">Selected elements:</small>
+                <span class="badge bg-primary selected-selector-badge" id="selectedCount"></span>
+              </div>
+              <button type="button" class="btn btn-outline-primary btn-sm" id="editSelectors">
+                Edit Selectors
+              </button>
+            </div>
+            <div id="previewText" class="mt-1"></div>
+            <div id="selectedElementsList"></div>
+          </div>
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-dark" id="scrapeButton">
+            <span class="spinner-border spinner-border-sm d-none" id="scrapeSpinner" role="status" aria-hidden="true"></span>
+            <span id="scrapeButtonText">Scrape Selected Elements</span>
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-  <form method="post" action="{{ url_for('scrape') }}">
-    <input type="hidden" name="url" value="{{ url }}">
-    <label for="selector">Selected CSS Selector:</label>
-    <input type="text" id="selector" name="selector" placeholder="Element selector will appear here" required>
-    <button type="submit">Scrape Selected Element</button>
-  </form>
+
+  <style>
+    /* Preview container styles */
+    .preview-wrapper {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    #preview-container {
+      background: #fff;
+      border: 1px solid #dee2e6;
+      width: 100%;
+    }
+
+    .preview-header {
+      background: #f8f9fa;
+      border-bottom: 1px solid #dee2e6;
+      padding: 8px;
+      z-index: 1000;
+      position: sticky;
+      top: 0;
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .browser-dots span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .browser-dots span:nth-child(1) { background: #ff5f57; }
+    .browser-dots span:nth-child(2) { background: #ffbd2e; }
+    .browser-dots span:nth-child(3) { background: #28c940; }
+
+    .preview-content {
+      height: 600px;
+      overflow-y: auto;
+      position: relative;
+      background: white;
+      isolation: isolate;
+      contain: content;
+    }
+
+    #preview-wrapper {
+      position: relative;
+      min-height: 100%;
+      background: white;
+      padding: 15px;
+    }
+
+    /* Isolate preview content styles */
+    #preview-wrapper * {
+      max-width: 100% !important;
+      height: auto !important;
+      position: relative !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    #preview-wrapper img,
+    #preview-wrapper video,
+    #preview-wrapper iframe {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+
+    /* Custom scrollbar */
+    .preview-content::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .preview-content::-webkit-scrollbar-track {
+      background: #fff;
+    }
+
+    .preview-content::-webkit-scrollbar-thumb {
+      background-color: #dee2e6;
+      border-radius: 4px;
+      border: 2px solid #fff;
+    }
+
+    /* Make the preview container responsive */
+    @media (max-width: 768px) {
+      .preview-content {
+        height: 400px;
+      }
+    }
+
+    /* Override external styles */
+    #preview-wrapper {
+      all: initial;
+      * {
+        all: revert;
+      }
+    }
+
+    /* Highlight hoverable elements */
+    #preview-wrapper *:hover {
+      outline: 2px solid #007bff !important;
+      cursor: pointer !important;
+    }
+
+    /* Add styles for selected element highlight */
+    .element-highlight {
+      background-color: rgba(0, 123, 255, 0.1) !important;
+      outline: 2px solid #007bff !important;
+      cursor: pointer !important;
+    }
+
+    /* Preview text styles */
+    #selectedPreview {
+      background-color: #f8f9fa;
+    }
+
+    #previewText {
+      max-height: 100px;
+      overflow-y: auto;
+      word-break: break-all;
+    }
+
+    /* Update highlight styles */
+    .similar-element-highlight {
+      background-color: rgba(255, 193, 7, 0.2) !important;
+      outline: 2px dashed #ffc107 !important;
+      transition: all 0.3s ease !important;
+      position: relative !important;
+      z-index: 1 !important;
+    }
+
+    /* Add counter badge */
+    .similar-elements-counter {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #007bff;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      z-index: 1001;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Style for selected elements */
+    .element-selected {
+      background-color: rgba(40, 167, 69, 0.2) !important;
+      outline: 2px solid #28a745 !important;
+      cursor: pointer !important;
+    }
+
+    /* Multi-select mode indicator */
+    .multi-select-badge {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #28a745;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      z-index: 1001;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Selected elements list */
+    #selectedElementsList {
+      margin-top: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .selected-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px;
+      margin: 4px 0;
+      background: #fff;
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+    }
+
+    .remove-selected {
+      color: #dc3545;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    /* Enhanced hover highlight */
+    .hover-highlight {
+      background-color: rgba(0, 123, 255, 0.1) !important;
+      outline: 2px solid #007bff !important;
+      transition: all 0.2s ease !important;
+    }
+
+    /* Selected element style */
+    .element-selected {
+      background-color: rgba(40, 167, 69, 0.2) !important;
+      outline: 2px solid #28a745 !important;
+      box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.1) !important;
+    }
+
+    /* Element info tooltip */
+    .element-tooltip {
+      position: fixed;
+      background: rgba(33, 37, 41, 0.95);
+      color: white;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      z-index: 1002;
+      max-width: 350px;
+      pointer-events: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tooltip-section {
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tooltip-section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .tooltip-label {
+      color: #8bb9fe;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .similar-count-badge {
+      display: inline-block;
+      background: #28a745;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 11px;
+      margin-left: 6px;
+    }
+
+    /* Highlight animations */
+    @keyframes highlightPulse {
+      0% { outline-color: rgba(255, 193, 7, 0.6); }
+      50% { outline-color: rgba(255, 193, 7, 1); }
+      100% { outline-color: rgba(255, 193, 7, 0.6); }
+    }
+
+    .similar-element-highlight {
+      background-color: rgba(255, 193, 7, 0.15) !important;
+      outline: 2px dashed rgba(255, 193, 7, 0.8) !important;
+      animation: highlightPulse 1.5s infinite !important;
+      transition: all 0.3s ease !important;
+    }
+
+    /* Selected elements container */
+    #selectedElementsList {
+      margin-top: 15px;
+      border-top: 1px solid #dee2e6;
+      padding-top: 15px;
+    }
+
+    .selected-item {
+      background: #fff;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      padding: 10px;
+    }
+
+    .selected-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .selected-item-selector {
+      font-family: monospace;
+      font-size: 12px;
+      color: #6c757d;
+      background: #f8f9fa;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-top: 5px;
+    }
+
+    .selector-input-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .selector-edit-mode .selected-item-selector {
+      background: transparent;
+      border: 1px solid #ced4da;
+      padding: 4px 8px;
+      width: 100%;
+      font-family: monospace;
+      font-size: 12px;
+      color: #212529;
+    }
+
+    .selector-validation-success {
+      outline: 2px solid #28a745 !important;
+    }
+
+    .selector-validation-error {
+      outline: 2px solid #dc3545 !important;
+    }
+
+    .selector-status {
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .selector-status.valid {
+      color: #28a745;
+    }
+
+    .selector-status.invalid {
+      color: #dc3545;
+    }
+
+    /* Update selector input styles */
+    .selector-edit-mode input.form-control {
+      font-family: monospace;
+      font-size: 12px;
+      padding: 4px 8px;
+      height: auto;
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    .selector-edit-mode input.selector-validation-success {
+      border-color: #28a745;
+      background-color: rgba(40, 167, 69, 0.05);
+    }
+
+    .selector-edit-mode input.selector-validation-error {
+      border-color: #dc3545;
+      background-color: rgba(220, 53, 69, 0.05);
+    }
+
+    /* Add transition effects */
+    .selector-edit-mode input.form-control {
+      transition: all 0.2s ease-in-out;
+    }
+
+    /* Selected elements preview styles */
+    #selectedPreview {
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
+    #selectedElementsList {
+      margin-top: 10px;
+      max-height: 300px; /* Increased height for better visibility */
+      overflow-y: auto;
+    }
+
+    .selected-item {
+      background: #ffffff;
+      border: 1px solid #dee2e6;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      padding: 12px; /* Increased padding */
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .selected-item:hover {
+      border-color: #adb5bd;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .selected-item-selector {
+      font-family: monospace;
+      font-size: 13px;
+      color: #495057;
+      background: #f8f9fa;
+      padding: 6px 10px;
+      border-radius: 4px;
+      margin-top: 6px;
+      border: 1px solid #e9ecef;
+    }
+
+    /* Selected elements count badge */
+    #selectedCount {
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 12px;
+    }
+
+    /* Selected elements header */
+    .selected-elements-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .selected-elements-count {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Update the badge styles */
+    .selected-selector-badge {
+      font-family: monospace;
+      font-size: 11px;
+      padding: 4px 8px;
+      max-width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      background-color: #f8f9fa !important;
+      color: #495057 !important;
+      border: 1px solid #dee2e6;
+    }
+
+    /* Add this to the existing <style> section */
+    #selector {
+      background-color: #fff;
+      cursor: default;
+    }
+
+    #selector::placeholder {
+      color: #6c757d;
+      opacity: 1;
+    }
+
+    #selector:focus::placeholder {
+      opacity: 0.7;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const previewWrapper = document.getElementById('preview-wrapper');
+      const selectorInput = document.getElementById('selector');
+      const selectedPreview = document.getElementById('selectedPreview');
+      const previewText = document.getElementById('previewText');
+      const scrapeForm = document.getElementById('scrapeForm');
+      const scrapeButton = document.getElementById('scrapeButton');
+      const scrapeSpinner = document.getElementById('scrapeSpinner');
+      const scrapeButtonText = document.getElementById('scrapeButtonText');
+      const multiSelectMode = document.getElementById('multiSelectMode');
+      const selectedElementsList = document.getElementById('selectedElementsList');
+      let lastHighlighted = null;
+      let selectedElements = new Set();
+
+      // Add new variables
+      const validateSelectorBtn = document.getElementById('validateSelector');
+      const editSelectorsBtn = document.getElementById('editSelectors');
+      let isEditMode = false;
+
+      // Enhanced selector generation function
+      function generateSelector(element) {
+        element.classList.remove('element-highlight');
+        
+        const strategies = [
+          // Strategy 1: ID selector
+          () => {
+            if (element.id) {
+              return `#${element.id}`;
+            }
+            return null;
+          },
+
+          // Strategy 2: Data attributes
+          () => {
+            const dataAttrs = Array.from(element.attributes)
+              .filter(attr => attr.name.startsWith('data-'))
+              .map(attr => `[${attr.name}="${attr.value}"]`);
+            return dataAttrs.length ? dataAttrs.join('') : null;
+          },
+
+          // Strategy 3: Unique class combinations
+          () => {
+            if (element.classList.length > 0) {
+              const classes = Array.from(element.classList)
+                .filter(cls => !cls.includes('highlight') && !cls.includes('selected'));
+              
+              // Try combinations of classes
+              for (let i = 1; i <= classes.length; i++) {
+                const combination = classes.slice(0, i);
+                const selector = '.' + combination.join('.');
+                const matches = previewWrapper.querySelectorAll(selector);
+                if (matches.length === 1) {
+                  return selector;
+                }
+              }
+            }
+            return null;
+          },
+
+          // Strategy 4: Specific attributes
+          () => {
+            const uniqueAttrs = ['href', 'src', 'alt', 'title', 'name', 'type', 'role'];
+            for (const attr of uniqueAttrs) {
+              const value = element.getAttribute(attr);
+              if (value) {
+                const selector = `[${attr}="${value}"]`;
+                const matches = previewWrapper.querySelectorAll(selector);
+                if (matches.length === 1) {
+                  return selector;
+                }
+              }
+            }
+            return null;
+          },
+
+          // Strategy 5: Position-based selector
+          () => {
+            let current = element;
+            let path = [];
+            let contextDepth = 0;
+            
+            while (current && current !== previewWrapper && contextDepth < 4) {
+              const tag = current.tagName.toLowerCase();
+              const parent = current.parentElement;
+              
+              if (parent) {
+                const index = Array.from(parent.children)
+                  .filter(child => child.tagName === current.tagName)
+                  .indexOf(current) + 1;
+                
+                path.unshift(index === 1 ? tag : `${tag}:nth-of-type(${index})`);
+              }
+              
+              current = parent;
+              contextDepth++;
+            }
+            
+            return path.join(' > ');
+          }
+        ];
+
+        // Try each strategy and validate results
+        for (const strategy of strategies) {
+          const selector = strategy();
+          if (selector) {
+            try {
+              const matches = previewWrapper.querySelectorAll(selector);
+              if (matches.length === 1 && matches[0] === element) {
+                return selector;
+              }
+            } catch (e) {
+              continue;
+            }
+          }
+        }
+
+        // Fallback to position-based selector
+        return strategies[4]();
+      }
+
+      // Add element tooltip
+      const tooltip = document.createElement('div');
+      tooltip.className = 'element-tooltip';
+      tooltip.style.display = 'none';
+      document.body.appendChild(tooltip);
+
+      // Enhanced hover handler with improved tooltip
+      function handleElementHover(e) {
+        if (!e.target.closest('#preview-wrapper')) return;
+        e.stopPropagation();
+
+        const target = e.target;
+        if (target === previewWrapper) return;
+
+        // Remove previous highlight
+        if (lastHighlighted) {
+          lastHighlighted.classList.remove('hover-highlight');
+        }
+
+        // Add highlight
+        target.classList.add('hover-highlight');
+        lastHighlighted = target;
+
+        // Generate selector and find similar elements
+        const selector = generateSelector(target);
+        const similarElements = findSimilarElements(target);
+        
+        // Get element metadata
+        const metadata = getElementMetadata(target);
+
+        // Update tooltip content
+        updateTooltip(target, selector, similarElements, metadata);
+      }
+
+      // Function to find similar elements
+      function findSimilarElements(element) {
+        const originalSelector = generateSelector(element);
+        const tag = element.tagName.toLowerCase();
+        const text = element.textContent.trim();
+        const structure = element.innerHTML.replace(/\s+/g, ' ').trim();
+        
+        // Try different strategies to find similar elements
+        const strategies = [
+          // Strategy 1: Exact selector match
+          () => Array.from(previewWrapper.querySelectorAll(originalSelector)),
+          
+          // Strategy 2: Same tag with similar text content
+          () => Array.from(previewWrapper.querySelectorAll(tag)).filter(el => {
+            const similarity = calculateTextSimilarity(el.textContent.trim(), text);
+            return similarity > 0.8; // 80% similarity threshold
+          }),
+          
+          // Strategy 3: Similar structure
+          () => Array.from(previewWrapper.querySelectorAll(tag)).filter(el => {
+            const elStructure = el.innerHTML.replace(/\s+/g, ' ').trim();
+            return calculateStructureSimilarity(elStructure, structure) > 0.7; // 70% structure similarity
+          }),
+          
+          // Strategy 4: Common parent with similar siblings
+          () => {
+            const parent = element.parentElement;
+            if (parent) {
+              return Array.from(parent.children).filter(el => 
+                el.tagName === element.tagName && 
+                el.classList.length === element.classList.length
+              );
+            }
+            return [];
+          }
+        ];
+
+        // Combine results from all strategies
+        let similarElements = new Set();
+        strategies.forEach(strategy => {
+          strategy().forEach(el => similarElements.add(el));
+        });
+
+        // Remove the original element from the set and convert to array
+        similarElements.delete(element);
+        const results = Array.from(similarElements);
+
+        return {
+          selector: originalSelector,
+          total: results.length + 1, // Include the original element
+          similar: results,
+          originalElement: element
+        };
+      }
+
+      // Add helper functions for similarity calculations
+      function calculateTextSimilarity(text1, text2) {
+        if (text1 === text2) return 1;
+        if (!text1 || !text2) return 0;
+        
+        const words1 = text1.toLowerCase().split(/\s+/);
+        const words2 = text2.toLowerCase().split(/\s+/);
+        
+        const intersection = words1.filter(word => words2.includes(word));
+        const union = new Set([...words1, ...words2]);
+        
+        return intersection.length / union.size;
+      }
+
+      function calculateStructureSimilarity(struct1, struct2) {
+        if (struct1 === struct2) return 1;
+        if (!struct1 || !struct2) return 0;
+        
+        const length = Math.max(struct1.length, struct2.length);
+        let matches = 0;
+        
+        for (let i = 0; i < length; i++) {
+          if (struct1[i] === struct2[i]) matches++;
+        }
+        
+        return matches / length;
+      }
+
+      // Function to get element metadata
+      function getElementMetadata(element) {
+        return {
+          tag: element.tagName.toLowerCase(),
+          classes: Array.from(element.classList)
+            .filter(cls => !cls.includes('highlight') && !cls.includes('selected')),
+          attributes: Array.from(element.attributes)
+            .filter(attr => !attr.name.includes('class'))
+            .map(attr => `${attr.name}="${attr.value}"`),
+          text: element.textContent.trim()
+        };
+      }
+
+      // Function to update tooltip
+      function updateTooltip(element, selector, similarElements, metadata) {
+        const rect = element.getBoundingClientRect();
+        
+        // Group similar elements by type
+        const exactMatches = similarElements.similar.filter(el => 
+          el.textContent.trim() === metadata.text
+        );
+        const structuralMatches = similarElements.similar.filter(el => 
+          el.textContent.trim() !== metadata.text
+        );
+        
+        tooltip.innerHTML = `
+          <div class="tooltip-section">
+            <div class="tooltip-label">Element</div>
+            <div>&lt;${metadata.tag}&gt;</div>
+          </div>
+          
+          ${metadata.classes.length ? `
+            <div class="tooltip-section">
+              <div class="tooltip-label">Classes</div>
+              <div>${metadata.classes.join(' ')}</div>
+            </div>
+          ` : ''}
+          
+          ${metadata.attributes.length ? `
+            <div class="tooltip-section">
+              <div class="tooltip-label">Attributes</div>
+              <div>${metadata.attributes.join('<br>')}</div>
+            </div>
+          ` : ''}
+          
+          <div class="tooltip-section">
+            <div class="tooltip-label">Similar Elements Found</div>
+            <div>
+              <span class="similar-count-badge">
+                ${exactMatches.length} exact matches
+              </span>
+              <span class="similar-count-badge" style="background: #fd7e14;">
+                ${structuralMatches.length} similar structure
+              </span>
+            </div>
+            <div class="mt-1 small">
+              Total: ${similarElements.total} elements
+            </div>
+          </div>
+          
+          <div class="tooltip-section">
+            <div class="tooltip-label">Generated Selector</div>
+            <div>${selector}</div>
+          </div>
+          
+          <div class="tooltip-section">
+            <div class="tooltip-label">Content Preview</div>
+            <div>${metadata.text.substring(0, 100)}${metadata.text.length > 100 ? '...' : ''}</div>
+          </div>
+        `;
+
+        // Position tooltip
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        
+        // Check if tooltip would overflow right edge
+        if (rect.right + tooltipRect.width + 20 > viewportWidth) {
+          tooltip.style.left = `${rect.left - tooltipRect.width - 10}px`;
+        } else {
+          tooltip.style.left = `${rect.right + 10}px`;
+        }
+        
+        tooltip.style.top = `${Math.max(0, rect.top)}px`;
+        tooltip.style.display = 'block';
+      }
+
+      // Function to validate a CSS selector
+      function validateSelector(selector) {
+        try {
+          const elements = previewWrapper.querySelectorAll(selector);
+          return {
+            isValid: true,
+            count: elements.length,
+            elements: Array.from(elements)
+          };
+        } catch (e) {
+          return {
+            isValid: false,
+            error: e.message
+          };
+        }
+      }
+
+      // Function to update selector input status
+      function updateSelectorStatus(result) {
+        const statusDiv = document.createElement('div');
+        statusDiv.className = `selector-status ${result.isValid ? 'valid' : 'invalid'}`;
+        
+        if (result.isValid) {
+          selectorInput.classList.add('selector-validation-success');
+          selectorInput.classList.remove('selector-validation-error');
+          statusDiv.textContent = `✓ Valid selector (matches ${result.count} element${result.count !== 1 ? 's' : ''})`;
+        } else {
+          selectorInput.classList.add('selector-validation-error');
+          selectorInput.classList.remove('selector-validation-success');
+          statusDiv.textContent = `✗ Invalid selector: ${result.error}`;
+        }
+
+        const existingStatus = selectorInput.parentElement.querySelector('.selector-status');
+        if (existingStatus) {
+          existingStatus.remove();
+        }
+        selectorInput.parentElement.appendChild(statusDiv);
+      }
+
+      // Function to toggle edit mode
+      function toggleEditMode() {
+        isEditMode = !isEditMode;
+        selectedElementsList.classList.toggle('selector-edit-mode');
+        editSelectorsBtn.textContent = isEditMode ? 'Save Changes' : 'Edit Selectors';
+
+        if (!isEditMode) {
+          // Save changes when exiting edit mode
+          const updatedElements = new Set();
+          
+          Array.from(selectedElementsList.getElementsByClassName('form-control')).forEach(input => {
+            const index = parseInt(input.dataset.index);
+            const newSelector = input.value;
+            const validation = validateSelector(newSelector);
+            
+            if (validation.isValid) {
+              const originalElement = Array.from(selectedElements)[index];
+              const elementData = {
+                selector: newSelector,
+                text: originalElement.text,
+                similarCount: validation.count
+              };
+              updatedElements.add(elementData);
+            }
+          });
+          
+          if (updatedElements.size > 0) {
+            selectedElements = updatedElements;
+          }
+        }
+        
+        // Refresh the display
+        updateSelectedElementsList();
+      }
+
+      // Add event listeners for selector validation and editing
+      validateSelectorBtn.addEventListener('click', function() {
+        const selector = selectorInput.value;
+        const result = validateSelector(selector);
+        updateSelectorStatus(result);
+
+        if (result.isValid) {
+          // Highlight matching elements briefly
+          result.elements.forEach(el => {
+            el.classList.add('similar-element-highlight');
+            setTimeout(() => {
+              el.classList.remove('similar-element-highlight');
+            }, 2000);
+          });
+        }
+      });
+
+      editSelectorsBtn.addEventListener('click', toggleEditMode);
+
+      // Add input event listener for real-time validation
+      selectorInput.addEventListener('input', function() {
+        const result = validateSelector(this.value);
+        updateSelectorStatus(result);
+      });
+
+      // Update the updateSelectedElementsList function
+      function updateSelectedElementsList() {
+        selectedElementsList.innerHTML = '';
+        const elements = Array.from(selectedElements);
+        
+        if (elements.length === 0) {
+          selectedPreview.classList.add('d-none');
+          document.getElementById('selectedCount').textContent = '';
+          return;
+        }
+
+        // Update the selector display
+        const selectors = elements.map(el => el.selector);
+        document.getElementById('selectedCount').textContent = selectors.join(', ');
+
+        elements.forEach((el, index) => {
+          const item = document.createElement('div');
+          item.className = 'selected-item';
+          
+          const selectorInput = isEditMode ? 
+            `<input type="text" class="form-control selector-edit-mode" value="${el.selector}" data-index="${index}">` :
+            `<div class="selected-item-selector">${el.selector}</div>`;
+          
+          item.innerHTML = `
+            <div class="selected-item-header">
+              <strong>Element ${index + 1} of ${elements.length}</strong>
+              <button type="button" class="btn btn-link remove-selected p-0" data-index="${index}">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            ${selectorInput}
+            <div class="text-muted small mt-1">${el.text.substring(0, 100)}${el.text.length > 100 ? '...' : ''}</div>
+          `;
+          selectedElementsList.appendChild(item);
+
+          // Add input event listener for real-time validation if in edit mode
+          if (isEditMode) {
+            const input = item.querySelector('input');
+            input.addEventListener('input', function() {
+              const result = validateSelector(this.value);
+              this.classList.toggle('selector-validation-success', result.isValid);
+              this.classList.toggle('selector-validation-error', !result.isValid);
+            });
+          }
+        });
+
+        // Update form selector input
+        selectorInput.value = elements.map(el => el.selector).join(', ');
+      }
+
+      // Hide tooltip when leaving elements
+      previewWrapper.addEventListener('mouseout', function(e) {
+        if (lastHighlighted) {
+          lastHighlighted.classList.remove('hover-highlight');
+        }
+        tooltip.style.display = 'none';
+      });
+
+      // Updated click handler for multi-select
+      function handleElementClick(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const element = e.target;
+        if (element === previewWrapper) return;
+
+        const selector = generateSelector(element);
+        const elementText = element.textContent.trim();
+        const similarElements = findSimilarElements(element);
+
+        // Always show the preview container first
+        selectedPreview.classList.remove('d-none');
+
+        if (multiSelectMode.checked) {
+          // Multi-select mode handling
+          const elementData = {
+            selector: selector,
+            text: elementText,
+            similarCount: similarElements.similar.length
+          };
+
+          // Toggle selection
+          const existingElement = Array.from(selectedElements)
+            .find(el => el.selector === selector && el.text === elementText);
+
+          if (existingElement) {
+            selectedElements.delete(existingElement);
+            element.classList.remove('element-selected');
+          } else {
+            selectedElements.add(elementData);
+            element.classList.add('element-selected');
+          }
+
+          // Update the selector display instead of count
+          const selectedCount = document.getElementById('selectedCount');
+          if (selectedElements.size > 0) {
+            const selectors = Array.from(selectedElements).map(el => el.selector);
+            selectedCount.textContent = selectors.join(', ');
+          } else {
+            selectedCount.textContent = '';
+          }
+          
+          // Update the preview text for multi-select
+          previewText.innerHTML = `
+            <div class="mb-2">
+              <strong>Selected elements:</strong>
+              <span class="text-muted ms-2">${selectedElements.size} element${selectedElements.size !== 1 ? 's' : ''} selected</span>
+            </div>
+          `;
+          
+          // Update the selected elements list
+          updateSelectedElementsList();
+        } else {
+          // Single select mode
+          selectedElements.clear();
+          selectedElements.add({
+            selector: selector,
+            text: elementText,
+            similarCount: similarElements.similar.length
+          });
+          
+          // Update the selector display
+          document.getElementById('selectedCount').textContent = selector;
+
+          // Update preview text for single select
+          previewText.innerHTML = `
+            <div class="mb-2">
+              <strong>Selected content:</strong> 
+              <span class="text-muted">${elementText.substring(0, 100)}${elementText.length > 100 ? '...' : ''}</span>
+            </div>
+            <div class="text-info">
+              <small>Found ${similarElements.similar.length} similar element${similarElements.similar.length !== 1 ? 's' : ''}</small>
+            </div>
+          `;
+        }
+
+        // Highlight similar elements
+        similarElements.similar.forEach((el, index) => {
+          const isExactMatch = el.textContent.trim() === elementText;
+          el.classList.add('similar-element-highlight');
+          el.style.backgroundColor = isExactMatch ? 
+            'rgba(255, 193, 7, 0.2)' : 
+            'rgba(253, 126, 20, 0.2)';
+          
+          setTimeout(() => {
+            el.classList.remove('similar-element-highlight');
+            el.style.backgroundColor = '';
+          }, 2000);
+        });
+      }
+
+      // Handle multi-select mode toggle
+      multiSelectMode.addEventListener('change', function(e) {
+        if (!e.target.checked) {
+          // Clear all selections when disabling multi-select
+          selectedElements.clear();
+          document.querySelectorAll('.element-selected').forEach(el => {
+            el.classList.remove('element-selected');
+          });
+          updateSelectedElementsList();
+        }
+      });
+
+      // Handle remove button clicks
+      selectedElementsList.addEventListener('click', function(e) {
+        if (e.target.closest('.remove-selected')) {
+          const index = parseInt(e.target.closest('.remove-selected').dataset.index);
+          const elementToRemove = Array.from(selectedElements)[index];
+          selectedElements.delete(elementToRemove);
+          updateSelectedElementsList();
+        }
+      });
+
+      // Update form submission to handle multiple selectors
+      scrapeForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if (selectedElements.size === 0) {
+          alert('Please select at least one element to scrape.');
+          return;
+        }
+
+        // Show loading spinner
+        scrapeSpinner.classList.remove('d-none');
+        scrapeButtonText.textContent = 'Scraping...';
+        scrapeButton.disabled = true;
+
+        // Create a comma-separated list of selectors
+        selectorInput.value = Array.from(selectedElements)
+          .map(el => el.selector)
+          .join(', ');
+
+        // Submit the form
+        this.submit();
+      });
+
+      // Add event listeners
+      previewWrapper.addEventListener('mouseover', handleElementHover);
+      previewWrapper.addEventListener('mouseout', function(e) {
+        if (lastHighlighted) {
+          lastHighlighted.classList.remove('element-highlight');
+        }
+      });
+
+      previewWrapper.addEventListener('click', handleElementClick);
+
+      // Prevent links from working in preview
+      previewWrapper.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => e.preventDefault());
+      });
+
+      // Remove scripts from preview
+      previewWrapper.querySelectorAll('script').forEach(script => {
+        script.remove();
+      });
+    });
+  </script>
 {% endblock %}

@@ -1,38 +1,82 @@
 {% extends "base.html" %}
-{% block content %}
-  <h2>Schedule a Scraping Task</h2>
-  {% if message %}
-    <p class="message">{{ message }}</p>
-  {% endif %}
-  <form method="post">
-    <label for="url">Website URL:</label>
-    <input type="text" id="url" name="url" placeholder="https://example.com" required><br><br>
-    
-    <label for="selector">CSS Selector:</label>
-    <input type="text" id="selector" name="selector" placeholder="e.g. .content, #main" required><br><br>
-    
-    <label for="scheduled_time">Scheduled Time:</label>
-<!-- HTML5 datetime-local input -->
-<input type="datetime-local" id="scheduled_time" name="scheduled_time" required><br><br>
 
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Schedule a Scraping Task</h2>
     
-    <button type="submit">Schedule Task</button>
-  </form>
-  
-  <h3>Scheduled Jobs</h3>
-  {% if jobs %}
-    <ul>
-    {% for job in jobs %}
-      <li>
-        {{ job.job_id }}: URL: {{ job.url }}, Selector: {{ job.selector }},
-        Scheduled For: {{ job.next_run }}, Created At: {{ job.created_at }}
-        <form method="post" action="{{ url_for('delete_job', job_db_id=job.id) }}" style="display:inline;">
-          <button type="submit">Remove</button>
-        </form>
-      </li>
-    {% endfor %}
-    </ul>
-  {% else %}
-    <p>No scheduled jobs.</p>
-  {% endif %}
+    <!-- Schedule Form -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="POST" action="{{ url_for('schedule') }}">
+                <div class="mb-3">
+                    <label for="url" class="form-label">Website URL</label>
+                    <input type="url" class="form-control" id="url" name="url" required>
+                </div>
+                <div class="mb-3">
+                    <label for="selector" class="form-label">CSS Selector</label>
+                    <input type="text" class="form-control" id="selector" name="selector" required>
+                </div>
+                <div class="mb-3">
+                    <label for="scheduled_time" class="form-label">Scheduled Time</label>
+                    <input type="datetime-local" class="form-control" id="scheduled_time" name="scheduled_time" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Schedule Task</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scheduled Jobs List -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="mb-0">Scheduled Jobs</h3>
+        </div>
+        <div class="card-body">
+            {% if jobs %}
+                <div class="list-group">
+                    {% for job in jobs %}
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="mb-0">
+                                    {% set domain = job.url.split('//')[-1].split('/')[0] %}
+                                    {% set selector = job.selector %}
+                                    {% set timestamp = job.next_run.strftime('%Y-%m-%d %H:%M') %}
+                                    {{ domain }} - {{ selector }} ({{ timestamp }})
+                                    {% if job.status == 'completed' %}
+                                        <span class="badge bg-success">Completed</span>
+                                    {% elif job.status == 'failed' %}
+                                        <span class="badge bg-danger">Failed</span>
+                                    {% else %}
+                                        <span class="badge bg-secondary">Pending</span>
+                                    {% endif %}
+                                </h5>
+                                <form method="POST" action="{{ url_for('delete_job', job_db_id=job.id) }}" class="d-inline">
+                                    <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                </form>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="mb-1"><span class="text-muted">URL:</span> {{ job.url }}</p>
+                                    <p class="mb-1"><span class="text-muted">Selector:</span> {{ job.selector }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="mb-1"><span class="text-muted">Scheduled:</span> {{ job.next_run.strftime('%Y-%m-%d %H:%M') }}</p>
+                                    <p class="mb-1"><span class="text-muted">Created:</span> {{ job.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+                                </div>
+                            </div>
+                            {% if job.results %}
+                                <div class="mt-2">
+                                    <a href="{{ url_for('download_job_results', job_id=job.id, format='csv') }}" class="btn btn-sm btn-outline-primary">Download CSV</a>
+                                    <a href="{{ url_for('download_job_results', job_id=job.id, format='json') }}" class="btn btn-sm btn-outline-primary">Download JSON</a>
+                                    <a href="{{ url_for('download_job_results', job_id=job.id, format='xlsx') }}" class="btn btn-sm btn-outline-primary">Download Excel</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-muted">No scheduled jobs found.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}

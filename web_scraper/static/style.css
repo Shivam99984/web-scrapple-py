@@ -68,3 +68,17 @@ li {
     color: green;
     text-align: center;
 }
+/* Scoped log styling */
+.log-entry {
+    font-family: monospace;
+  }
+  
+  .timestamp {
+    color: #6c757d;
+    font-size: 0.875rem;
+  }
+  
+  .message {
+    color: #212529;
+  }
+  

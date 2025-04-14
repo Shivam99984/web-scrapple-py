@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-dark">Usage Log Viewer</h2>
+        <a href="{{ url_for('index') }}" class="btn btn-outline-primary btn-sm">← Back to Home</a>
+      </div>
+
+      <!-- Search and Filter Form -->
+      <div class="card p-3 mb-4 shadow-sm">
+        <form method="GET" action="{{ url_for('view_logs') }}" class="row g-3">
+          <!-- Search Input -->
+          <div class="col-md-6">
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-search"></i></span>
+              <input type="text" class="form-control" name="search" 
+                     placeholder="Search logs (e.g., 'error', 'database', 'login')" 
+                     value="{{ request.args.get('search', '') }}">
+            </div>
+          </div>
+
+          <!-- Category Filter -->
+          <div class="col-md-4">
+            <div class="dropdown">
+              <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button" 
+                      id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-filter me-2"></i>
+                Categories
+                {% if request.args.getlist('category') %}
+                  <span class="badge bg-primary ms-2">{{ request.args.getlist('category')|length }}</span>
+                {% endif %}
+              </button>
+              <ul class="dropdown-menu w-100 p-3" aria-labelledby="categoryDropdown">
+                <div class="row g-2">
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="category" value="error" 
+                             id="errorCheck" {% if 'error' in request.args.getlist('category') %}checked{% endif %}>
+                      <label class="form-check-label" for="errorCheck">
+                        <span class="badge bg-danger">Errors</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="category" value="warning" 
+                             id="warningCheck" {% if 'warning' in request.args.getlist('category') %}checked{% endif %}>
+                      <label class="form-check-label" for="warningCheck">
+                        <span class="badge bg-warning">Warnings</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="category" value="info" 
+                             id="infoCheck" {% if 'info' in request.args.getlist('category') %}checked{% endif %}>
+                      <label class="form-check-label" for="infoCheck">
+                        <span class="badge bg-info">Info</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="category" value="debug" 
+                             id="debugCheck" {% if 'debug' in request.args.getlist('category') %}checked{% endif %}>
+                      <label class="form-check-label" for="debugCheck">
+                        <span class="badge bg-secondary">Debug</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="category" value="success" 
+                             id="successCheck" {% if 'success' in request.args.getlist('category') %}checked{% endif %}>
+                      <label class="form-check-label" for="successCheck">
+                        <span class="badge bg-success">Success</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="category" value="scraping" 
+                             id="scrapingCheck" {% if 'scraping' in request.args.getlist('category') %}checked{% endif %}>
+                      <label class="form-check-label" for="scrapingCheck">
+                        <span class="badge bg-primary">Scraping</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="category" value="scheduled" 
+                             id="scheduledCheck" {% if 'scheduled' in request.args.getlist('category') %}checked{% endif %}>
+                      <label class="form-check-label" for="scheduledCheck">
+                        <span class="badge bg-info">Scheduled</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="category" value="export" 
+                             id="exportCheck" {% if 'export' in request.args.getlist('category') %}checked{% endif %}>
+                      <label class="form-check-label" for="exportCheck">
+                        <span class="badge bg-success">Export</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="category" value="auth" 
+                             id="authCheck" {% if 'auth' in request.args.getlist('category') %}checked{% endif %}>
+                      <label class="form-check-label" for="authCheck">
+                        <span class="badge bg-primary">Auth</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="category" value="database" 
+                             id="databaseCheck" {% if 'database' in request.args.getlist('category') %}checked{% endif %}>
+                      <label class="form-check-label" for="databaseCheck">
+                        <span class="badge bg-info">Database</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="category" value="system" 
+                             id="systemCheck" {% if 'system' in request.args.getlist('category') %}checked{% endif %}>
+                      <label class="form-check-label" for="systemCheck">
+                        <span class="badge bg-secondary">System</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Apply Button -->
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100">
+              <i class="fas fa-filter me-2"></i>Apply
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Results -->
+      <div class="card p-4 shadow-sm">
+        {% if log_entries %}
+          <div class="mb-3 text-muted small">
+            Found {{ log_entries|length }} entries
+            {% if request.args.get('search') or request.args.getlist('category') %}
+              (Filtered results)
+              <a href="{{ url_for('view_logs') }}" class="ms-2">Clear filters</a>
+            {% endif %}
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Category</th>
+                  <th>Message</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for log_entry in log_entries %}
+                  <tr>
+                    <td class="text-muted small">{{ log_entry.timestamp }}</td>
+                    <td><span class="badge bg-{{ log_entry.category_color }}">{{ log_entry.category }}</span></td>
+                    <td class="message">{{ log_entry.message }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <div class="text-center py-5">
+            <i class="fas fa-search fa-3x text-muted mb-3"></i>
+            <p class="text-muted">No logs found matching your criteria.</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .table {
+      margin-bottom: 0;
+    }
+    .table td {
+      vertical-align: middle;
+    }
+    .message {
+      font-family: monospace;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .badge {
+      min-width: 70px;
+    }
+    .dropdown-menu {
+      max-height: 400px;
+      overflow-y: auto;
+      padding: 1rem;
+    }
+    .dropdown-item {
+      padding: 0.5rem;
+    }
+    .form-check {
+      margin: 0;
+    }
+    .form-check-label {
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .form-check-input {
+      cursor: pointer;
+    }
+    .dropdown-toggle::after {
+      margin-left: 0.5rem;
+    }
+  </style>
+{% endblock %}
