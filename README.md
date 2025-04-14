@@ -11,7 +11,10 @@ A powerful web scraping application built with Flask that allows you to scrape w
 
 ![Demo GIF](web_scraper/static/img/demo.gif)
 
-![Logo](web_scraper/static/img/logo.png)
+<br>
+
+<p align="center">![Logo](web_scraper/static/img/logo.png)</p>
+
 
 ## ✨ Features
 
