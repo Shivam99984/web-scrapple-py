@@ -81,7 +81,11 @@ python create_example_user.py
 ### Step 7: Run the Application
 
 ```bash
+<<<<<<< HEAD
 python app.py
+=======
+   python app.py
+>>>>>>> 1ac8f8b2ca583cf9be29d30eb076b5d5cffe90d0
 ```
 
 Visit `http://localhost:5000` e.g http://127.0.0.1:5000/ in your browser to access the application.
