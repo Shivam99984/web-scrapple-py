@@ -171,4 +171,4 @@ For support, email support@example.com or open an issue in the repository.
 
 ---
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by Shivam
