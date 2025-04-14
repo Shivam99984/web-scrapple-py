@@ -9,9 +9,9 @@ A powerful web scraping application built with Flask that allows you to scrape w
   Your browser does not support the video tag.
 </video>
 
-![Demo GIF](static/img/demo.gif)
+![Demo GIF](web_scraper/static/img/demo.gif)
 
-![Logo](static/img/logo.png)
+![Logo](web_scraper/static/img/logo.png)
 
 ## ✨ Features
 
