@@ -216,57 +216,12 @@ For support, message me  or open an issue in the repository.
 
 <div align="center">
 
-### Made with ❤️ by Shivam
-
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" alt="Laptop" width="100"/>
-
-[⬆ Back to Top](#-web-scraper-project)
-
-</div>
-
-
-
-# 🕷️ Web Scraper Project
-
-A powerful web scraping application built with Flask that allows you to scrape websites, schedule scraping jobs, and export data in multiple formats.
-
-
-## 🎥 Demo Video
-<video width="800" controls>
-  <source src="static/img/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-![Demo GIF](web_scraper/static/img/demo.gif)
-
-<br>
-<p align="center">
-    <img width="500" src="web_scraper/static/img/logo.png" alt="Material Bread logo">
-</p>
-
-## ✨ Features
-
-- 🔐 User Authentication (Register/Login)
-- 🌐 Web Scraping with CSS Selectors
-- ⏰ Scheduled Scraping Jobs
-- 📊 Multiple Export Formats (CSV, JSON, XLSX)
-- 📝 Activity Logging
-- 🔄 Real-time Scraping Preview
-
-
-
-
-
-
-
-<div align="center">
-
 <h3>Made with ❤️ by Shivam</h3>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" alt="Laptop" width="75" />
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Spider.png" alt="Spider" width="75" />
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Rocket.png" alt="Rocket" width="75" />
+  <img src="https://twemoji.maxcdn.com/v/latest/72x72/1f4bb.png" alt="Laptop" width="75" />
+  <img src="https://twemoji.maxcdn.com/v/latest/72x72/1f577.png" alt="Spider" width="75" />
+  <img src="https://twemoji.maxcdn.com/v/latest/72x72/1f680.png" alt="Rocket" width="75" />
 </p>
 
 <p align="center">
@@ -278,11 +233,11 @@ A powerful web scraping application built with Flask that allows you to scrape w
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/High%20Voltage.png" alt="High Voltage" width="25" />
+  <img src="https://twemoji.maxcdn.com/v/latest/72x72/26a1.png" alt="High Voltage" width="25" />
   Happy Scraping!
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/High%20Voltage.png" alt="High Voltage" width="25" />
+  <img src="https://twemoji.maxcdn.com/v/latest/72x72/26a1.png" alt="High Voltage" width="25" />
 </p>
 
-[⬆ Back to Top](#-web-scraper-project)
+<a href="#-web-scraper-project">⬆ Back to Top</a>
 
 </div>
