@@ -218,7 +218,7 @@ For support, message me  or open an issue in the repository.
 
 ### Made with ❤️ by Shivam
 
-💻 🕷️ 🚀
+# 💻 🕷️ 🚀
 
 [![GitHub Followers](https://img.shields.io/github/followers/Shivam99984?label=Follow&style=social)](https://github.com/Shivam99984)
 &nbsp;&nbsp;
