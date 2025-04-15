@@ -216,7 +216,7 @@ For support, message me  or open an issue in the repository.
 
 <div align="center">
 
-### Made with ❤️ by Shivam
+### Made with ❤️ by Shivam Yadav & Shubham Panwar
 
 # 💻 🕷️ 🚀
 
