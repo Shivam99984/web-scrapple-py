@@ -214,30 +214,38 @@ For support, message me  or open an issue in the repository.
 
 ---
 
+<hr>
+
 <div align="center">
 
 <h3>Made with ❤️ by Shivam</h3>
 
-<p align="center">
-  <img src="https://twemoji.maxcdn.com/v/latest/72x72/1f4bb.png" alt="Laptop" width="75" />
-  <img src="https://twemoji.maxcdn.com/v/latest/72x72/1f577.png" alt="Spider" width="75" />
-  <img src="https://twemoji.maxcdn.com/v/latest/72x72/1f680.png" alt="Rocket" width="75" />
+<p>
+  <img src="https://twemoji.maxcdn.com/v/latest/72x72/1f4bb.png" alt="Laptop" width="50" title="Coding" />
+  &nbsp;
+  <img src="https://twemoji.maxcdn.com/v/latest/72x72/1f577.png" alt="Spider" width="50" title="Web Scraping" />
+  &nbsp;
+  <img src="https://twemoji.maxcdn.com/v/latest/72x72/1f680.png" alt="Rocket" width="50" title="Launch!" />
 </p>
 
-<p align="center">
+<p>
   <a href="https://github.com/Shivam99984">
-    <img src="https://img.shields.io/github/followers/Shivam99984?label=Follow&style=social" alt="GitHub followers" />
+    <img src="https://img.shields.io/github/followers/Shivam99984?label=Follow&style=social" alt="GitHub Followers" />
   </a>
-  <img src="https://img.shields.io/badge/Stay-Awesome-orange?style=flat-square" alt="Stay Awesome" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Stay-Awesome-orange?style=flat-square" alt="Stay Awesome Badge" />
+  &nbsp;
   <img src="https://komarev.com/ghpvc/?username=Shivam99984&color=brightgreen" alt="Profile Views" />
 </p>
 
-<p align="center">
-  <img src="https://twemoji.maxcdn.com/v/latest/72x72/26a1.png" alt="High Voltage" width="25" />
-  Happy Scraping!
-  <img src="https://twemoji.maxcdn.com/v/latest/72x72/26a1.png" alt="High Voltage" width="25" />
+<p>
+  <img src="https://twemoji.maxcdn.com/v/latest/72x72/26a1.png" alt="High Voltage" width="25" title="High Voltage" />
+  <strong>Happy Scraping!</strong>
+  <img src="https://twemoji.maxcdn.com/v/latest/72x72/26a1.png" alt="High Voltage" width="25" title="High Voltage" />
 </p>
 
-<a href="#-web-scraper-project">⬆ Back to Top</a>
+<p>
+  <a href="#-web-scraper-project">⬆ Back to Top</a>
+</p>
 
 </div>
